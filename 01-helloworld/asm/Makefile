@@ -16,8 +16,8 @@ all:
 	mkdir -p bin
 	mkdir -p lst
 	mkdir -p map
-	$(CL65) --static-locals -t none -C includes/neo6502.cfg -O --cpu 65c02 -l lst/helloworld.lst -m map/hehelloworldllo.map -o bin/helloworld.bin src/main.asm includes/neo6502.lib
-	python3 $(NEO_HOME)/exec.zip bin/helloworld.bin@800 run@800 -o"bin/helloworld.neo"
+	$(CL65) --static-locals -t none -C includes/neo6502.cfg -O --cpu 65c02 -l lst/helloworld.lst -m map/helloworld.map -o bin/helloworld.bin src/main.asm includes/neo6502.lib
+	python3 $(NEO_HOME)exec.zip bin/helloworld.bin@800 run@800 -o"bin/helloworld.neo"
 	rm bin/helloworld.bin
 
 clean:
