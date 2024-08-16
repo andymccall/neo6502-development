@@ -4,11 +4,20 @@
 *.PRG
 *.prg
 *.list
+*.lst
+lst
+bin
+obj
 
 # NEO6502
 *.neo
 storage
 *.dump
+*.list
+*.lst
+lst
+bin
+obj
 
 # Agon Light 2
 bin

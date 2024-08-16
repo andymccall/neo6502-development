@@ -1,0 +1,26 @@
+Modules list:
+-------------
+main.o:
+    CODE              Offs=000000  Size=00003B  Align=00001  Fill=0000
+
+
+Segment list:
+-------------
+Name                   Start     End    Size  Align
+----------------------------------------------------
+CODE                  000800  00083A  00003B  00001
+
+
+Exports list by name:
+---------------------
+
+
+
+Exports list by value:
+----------------------
+
+
+
+Imports list:
+-------------
+

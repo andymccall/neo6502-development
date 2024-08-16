@@ -16,9 +16,10 @@ all:
 	mkdir -p bin
 	mkdir -p lst
 	mkdir -p map
-	$(CL65) --static-locals -t none -C includes/neo6502.cfg -O --cpu 65c02 -l lst/helloworld.lst -m map/hehelloworldllo.map -o bin/helloworld.bin src/main.asm includes/neo6502.lib
-	python3 $(NEO_HOME)/exec.zip bin/helloworld.bin@800 run@800 -o"bin/helloworld.neo"
-	rm bin/helloworld.bin
+	$(CA65) includes/crt0.s
+	$(AR65) a includes/neo6502.lib includes/crt0.o
+	$(CL65) --static-locals -t none -C includes/neo6502.cfg -O --cpu 65c02 -l lst/hello.lst -m map/hello.map -o bin/hello.bin src/main.c includes/neo6502.lib
+	python3 $(NEO_HOME)/exec.zip bin/hello.bin@800 run@800 -o"bin/hello.neo"
 
 clean:
 	@echo "Cleaning project..."
@@ -27,12 +28,12 @@ clean:
 	rm -rf map
 	rm -rf *.bin
 	rm -rf storage
-	if [ -f memory.dump ]; then rm memory.dump; fi
+	rm memory.dump
 
 run:
 	@echo "Launching emulator..."
 	mkdir -p storage
-	cp bin/helloworld.neo storage
-	$(NEOEMU) bin/helloworld.neo@800 cold
+	cp bin/hello.neo storage
+	$(NEOEMU) bin/hello.neo@800 cold
 	rm -rf storage
 	rm memory.dump

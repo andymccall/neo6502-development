@@ -1,20 +1,20 @@
 ;
-; Title:		       00-firstprg - Assembler Example
+; Title:		       01-helloworld - Assembler Example
 ;
-; Description:     A program that does nothing for the NEO6502
-;                  intended to check your environment works with no
-;                  issues
-; Author:		    Andy McCall, mailme@andymccall.co.uk
+; Description:         A program that outputs Hello, World! on the NEO6502
+;                      intended to check your environment works with no
+;                      issues
+; Author:		       Andy McCall, mailme@andymccall.co.uk
 ;
-; Created:		    2024-08-16 @ 14:07
-; Last Updated:	 2024-08-16 @ 14:07
+; Created:		       2024-08-16 @ 14:07
+; Last Updated:	       2024-08-16 @ 14:07
 ;
 ; Modinfo:
 ;
 
 .include "../includes/neo6502.asm"
 
-.org $080D
+.org $800
 .segment "STARTUP"
 .segment "INIT"
 .segment "ONCE"
@@ -23,6 +23,7 @@
    jmp start
 
 start:
+
     ldx #0                 ; initialize string iteration index
     lda API_FN_WRITE_CHAR  ; console write function        (API::console->write)
     sta API_FUNCTION       ; set API 'Function'            (API::console->write)
