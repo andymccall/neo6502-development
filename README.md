@@ -46,6 +46,39 @@ username@host:~$ cc65 --version
 cc65 V2.19 - Git 0541b65aa
 ```
 
+### Install MOS-LLVM
+
+username@host:~$ wget https://github.com/llvm-mos/llvm-mos-sdk/releases/download/v19.1.0/llvm-mos-linux.tar.xz
+username@host:~$ unxz llvm-mos-linux.tar.xz
+username@host:~$ tar xpvf llvm-mos-linux.tar
+username@host:~$ rm llvm-mos-llvm.tar
+
+Add llvm-mos bin to the path:
+
+```
+username@host:~$ vi ~/.profile
+```
+
+Add the following at the bottom of the file:
+
+```
+# set PATH so it includes llvm-mos if it exists
+if [ -d "$HOME/development/tools/llvm-mos/bin" ] ; then
+   PATH="$HOME/development/tools/llvm-mos/bin:$PATH"
+fi
+```
+
+Test:
+
+```
+username@host:~/development/neo6502-development/01-helloworld/c$ mos-neo6502-clang --version
+clang version 19.0.0git (https://github.com/llvm-mos/llvm-mos 0ec5fec611e127124170707224715983cd45d889)
+Target: mos-neo6502
+Thread model: posix
+InstalledDir: /home/username/development/tools/llvm-mos/bin
+Configuration file: /home/username/development/tools/llvm-mos/bin/mos-neo6502.cfg
+```
+
 ### Install NEO6502 Emulator
 
 ```

@@ -6,6 +6,6 @@ Compile using llvm-mos
 
 #### Running in neo Emulator
 
-    $ neo helloworld.neo@800 cold
+    $ neo helloworld.neo cold
 
 The program should run on startup

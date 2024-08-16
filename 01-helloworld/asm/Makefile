@@ -33,6 +33,6 @@ run:
 	@echo "Launching emulator..."
 	mkdir -p storage
 	cp bin/helloworld.neo storage
-	$(NEOEMU) bin/helloworld.neo@800 cold
+	$(NEOEMU) bin/helloworld.neo cold
 	rm -rf storage
 	rm memory.dump

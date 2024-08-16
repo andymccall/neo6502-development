@@ -26,6 +26,6 @@ clean:
 
 run:
 	@echo "Launching emulator..."
-	$(NEOEMU) bin/firstprg.neo@800 cold
+	$(NEOEMU) bin/firstprg.neo cold
 	rm -rf storage
 	rm memory.dump

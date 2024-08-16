@@ -16,11 +16,6 @@
 
 .org $800
 .segment "STARTUP"
-.segment "INIT"
-.segment "ONCE"
-.segment "CODE"
-
-   jmp start
 
 start:
 
@@ -34,7 +29,7 @@ print_next_char:
     lda hello_msg , x      ; next character of 'hello_msg' (API::console->write->char)
     beq end                ; test for string end null byte
     sta API_PARAMETERS + 0 ; set API 'Parameter0'          (API::console->write->char)
-    lda API_GROUP_CONSOLE  ; 'Console' API function group  (API::console)
+    lda #API_GROUP_CONSOLE  ; 'Console' API function group  (API::console)
     sta API_COMMAND        ; trigger 'Console' API routine (API::console)
 
     inx                    ; increment iteration index
