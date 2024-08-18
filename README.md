@@ -1,5 +1,14 @@
 # NEO6502 Development Environment Setup
 
+This README.md and repository will assist you in setting up a development environment for the NEO6502 using the following tools:
+
+- VSCode as an Integrated Development Environment
+- cc65 for programming in assembly language
+- LLVM-MOS for programming in C
+- NEO6502 emulator for testing
+
+The repository has examples using both 6502 assembly and C.
+
 ### Install VSCode
 
 Install VSCode and the following extensions:
