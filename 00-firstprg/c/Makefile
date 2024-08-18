@@ -2,30 +2,30 @@
 # Makefile Options
 # ----------------------------
 
-CA65       = ca65
-AR65       = ar65
-AR65_FLAGS = a
-CL65       = cl65
+CC         = mos-neo6502-clang
 NEOEMU     = neo
+NEO_HOME   = ~/development/tools/neo6502/
 
 default: all
 
 all:
 	@echo "Building project..."
 	mkdir -p bin
-	mkdir -p lst
-	$(CA65) $(AR65_FLAGS) crt0.s
-	$(AR65) $(AR65_FLAGS) neo6502.lib crt0.o
-	$(CL65) --static-locals -t none -C neo6502.cfg -O --cpu 65c02 -l lst/firstprg.lst -m main.map -o bin/main.neo src/firstprg.c neo6502.lib
+	mos-neo6502-clang -Os -o bin/firstprg.neo src/main.c
+	rm bin/firstprg.neo.elf
 
 clean:
 	@echo "Cleaning project..."
 	rm -rf bin
-	rm -rf lst
-	rm -rf *.bin
+	rm -rf storage
+	rm -rf src/*.o
+	rm -rf includes/*.o
+	if [ -f memory.dump ]; then rm memory.dump; fi
 
 run:
 	@echo "Launching emulator..."
-	$(NEOEMU) bin/firstprg.neo cold
+	mkdir -p storage
+	cp bin/firstprg.neo storage
+	$(NEOEMU) bin/firstprg.neo@800 cold
 	rm -rf storage
 	rm memory.dump

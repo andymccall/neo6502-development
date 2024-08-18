@@ -7,7 +7,7 @@ This README.md and repository will assist you in setting up a development enviro
 - LLVM-MOS for programming in C
 - NEO6502 emulator for testing
 
-The repository has examples using both 6502 assembly and C.
+The repository has examples using both 6502 assembly and C. Each example has a README.md file that explains how to compile and run the example.
 
 ### Install VSCode
 

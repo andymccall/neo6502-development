@@ -1,11 +1,19 @@
 #### Compling
 
-Compile using llvm-mos
-
-    $ mos-neo6502-clang -Os -o helloworld.neo helloworld.c
+```
+$ make
+```
 
 #### Running in neo Emulator
 
-    $ neo helloworld.neo cold
+```
+$ make run
+```
 
-The program should run on startup
+Run the program by typing:
+
+```
+run"helloworld.neo
+```
+
+In the emulator console, "Hello, World!" will be shown in the console.

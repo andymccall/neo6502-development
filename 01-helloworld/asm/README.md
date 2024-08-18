@@ -1,7 +1,19 @@
-#### Building
+#### Compling
 
-    $ make
+```
+$ make
+```
 
-#### Running 
+#### Running in neo Emulator
 
-    $ make run
+```
+$ make run
+```
+
+Run the program by typing:
+
+```
+run"helloworld.neo
+```
+
+In the emulator console, "Hello, World!" will be shown in the console.
