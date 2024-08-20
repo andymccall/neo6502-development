@@ -122,3 +122,7 @@ Test:
 username@host:~$ source ~/.profile
 username@host:~$ neo
 ```
+
+### Found this guide useful?
+
+I don't write code, documents or software for profit, I do it for enjoyment and to help others. If you get anything useful from this guide, and only if you can afford it, please let me know by buying me a coffee using my Ko-fi tip page [here](https://ko-fi.com/andymccall).
