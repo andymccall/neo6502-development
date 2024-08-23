@@ -1,11 +1,49 @@
 # NEO6502 Development Environment Setup
 
-This README.md and repository will assist you in setting up a development environment for the NEO6502 using the following tools:
+## Intro
+
+![Neo6502 Header](https://github.com/andymccall/neo6502-development/blob/main/assets/neo6502-header.jpg?raw=true)
+
+W65C02S lives in The Matrix and thinks there is real RAM and other interfaces around it, but the truth is that all this is emulation of the real life. The RP2040 emulates the RAM memory, video, IO and even clock the W65C02S by PWM.
+
+## Features
+
+Neo6502 has these features:
+
+* W65C02S processor
+* RP2040 SOC with 2MB Flash
+* DVI video on HDMI connector
+* USB host for keyboard
+* Audio 3.5mm output
+* Speaker with enable jumper
+* USB-C for power supply
+* UEXT connector with I2C, UART and SPI
+* 40 pin 6502 bus connector with all W65C02 signals
+* Dimensions 80x55mm
+* 4 mount holes
+
+The Neo6502 is available as a bare single board computer:
+
+![Neo6502 Single Board Computer](https://github.com/andymccall/neo6502-development/blob/main/assets/neo6502.jpg?raw=true)
+
+Boxed in a nice case:
+
+![Neo6502 Boxed](https://github.com/andymccall/neo6502-development/blob/main/assets/neo6502-boxed.jpg?raw=true)
+
+Or as a standalone PC variant with a built in screen:
+
+![Neo6502pc](https://github.com/andymccall/neo6502-development/blob/main/assets/neo6502pc.jpg?raw=true)
+
+All these variants can be purchased from [Olimex.com](https://www.olimex.com/).
+
+## This Document
+
+This README.md and repository will assist you in setting up a development environment for the Neo6502 using the following tools:
 
 - VSCode as an Integrated Development Environment
 - cc65 for programming in assembly language
 - LLVM-MOS for programming in C
-- NEO6502 emulator for testing
+- Neo6502 emulator for testing
 
 The repository has examples using both 6502 assembly and C. Each example has a README.md file that explains how to compile and run the example.
 
@@ -122,6 +160,12 @@ Test:
 username@host:~$ source ~/.profile
 username@host:~$ neo
 ```
+
+### Where to get help
+
+You can ask for help in the Neo6502 Community Discord channel, which can be found [here](https://discord.gg/cvhcCpPbbs).
+
+More information on programming the Neo6502 can be found in the community documentation [here](https://neo6502.com/).
 
 ### Found this guide useful?
 
