@@ -1,19 +1,29 @@
-#### Compling
+### 00-firstprg
+
+This program does nothing other than start and stop.  It's intended to test your development environment.
+
+#### Building
+
+Perform the following commands to compile the project:
 
 ```
-$ make
+username@host:~$ cd neo6502-development/00-firstprg/c
+Building project...
+mkdir -p bin
+mos-neo6502-clang -Os -o bin/firstprg.neo src/main.c
+rm bin/firstprg.neo.elf
 ```
 
-#### Running in neo Emulator
+#### Running the program
+
+The newly built program can be run within the neo emulator using the following commands:
 
 ```
-$ make run
+username@host:~$ make run
 ```
 
-Run the program by typing:
+This will launch the neo emulator.
 
-```
-run"firstprg.neo
-```
+You should see something similar to the following:
 
-In the emulator console, however nothign will happen as the program simply loops.
+![Screenshot of the neo emulator](https://github.com/andymccall/neo6502-development/blob/main/00-firstprg/assets/00-firstprg_c.png?raw=true)

@@ -12,7 +12,7 @@
 ; Modinfo:
 ;
 
-.include "../includes/neo6502.asm"
+.include "includes/neo6502.asm"
 
 .org $800
 .segment "STARTUP"

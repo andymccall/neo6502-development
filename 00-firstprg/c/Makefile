@@ -2,6 +2,7 @@
 # Makefile Options
 # ----------------------------
 
+NAME	   = firstprg
 CC         = mos-neo6502-clang
 NEOEMU     = neo
 NEO_HOME   = ~/development/tools/neo6502/
@@ -11,8 +12,8 @@ default: all
 all:
 	@echo "Building project..."
 	mkdir -p bin
-	mos-neo6502-clang -Os -o bin/firstprg.neo src/main.c
-	rm bin/firstprg.neo.elf
+	mos-neo6502-clang -Os -o bin/$(NAME).neo src/main.c
+	rm bin/$(NAME).neo.elf
 
 clean:
 	@echo "Cleaning project..."
@@ -25,7 +26,7 @@ clean:
 run:
 	@echo "Launching emulator..."
 	mkdir -p storage
-	cp bin/firstprg.neo storage
-	$(NEOEMU) bin/firstprg.neo@800 cold
+	cp bin/$(NAME).neo storage
+	$(NEOEMU) bin/$(NAME).neo@800 cold
 	rm -rf storage
 	rm memory.dump

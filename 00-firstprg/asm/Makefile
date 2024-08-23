@@ -2,6 +2,7 @@
 # Makefile Options
 # ----------------------------
 
+NAME       = firstprg
 CA65       = ca65
 AR65       = ar65
 CL65       = cl65
@@ -16,9 +17,9 @@ all:
 	mkdir -p bin
 	mkdir -p lst
 	mkdir -p map
-	$(CL65) --static-locals -t none -C includes/neo6502.cfg -O --cpu 65c02 -l lst/firstprg.lst -m map/firstprg.map -o bin/firstprg.bin src/main.asm includes/neo6502.lib
-	python3 $(NEO_HOME)exec.zip bin/firstprg.bin@800 run@800 -o"bin/firstprg.neo"
-	rm bin/firstprg.bin
+	$(CL65) --static-locals -t none -C src/includes/neo6502.cfg -O --cpu 65c02 -l lst/$(NAME).lst -m map/$(NAME).map -o bin/$(NAME).bin src/main.asm src/includes/neo6502.lib
+	python3 $(NEO_HOME)exec.zip bin/$(NAME).bin@800 run@800 -o"bin/$(NAME).neo"
+	rm bin/$(NAME).bin
 
 clean:
 	@echo "Cleaning project..."
@@ -32,7 +33,7 @@ clean:
 run:
 	@echo "Launching emulator..."
 	mkdir -p storage
-	cp bin/firstprg.neo storage
-	$(NEOEMU) bin/firstprg.neo cold
+	cp bin/$(NAME).neo storage
+	$(NEOEMU) bin/$(NAME).neo cold
 	rm -rf storage
 	rm memory.dump

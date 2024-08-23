@@ -125,4 +125,6 @@ username@host:~$ neo
 
 ### Found this guide useful?
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/andymccall)
+
 I don't write code, documents or software for profit, I do it for enjoyment and to help others. If you get anything useful from this guide, and only if you can afford it, please let me know by buying me a coffee using my Ko-fi tip page [here](https://ko-fi.com/andymccall).
