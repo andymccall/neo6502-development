@@ -40,7 +40,6 @@ username@host:~$ make run
 ```
 
 This will launch the neo emulator.
-```
 
 You should see something similar to the following:
 
