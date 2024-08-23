@@ -2,7 +2,7 @@
 
 ## Intro
 
-![Neo6502 Header](https://github.com/andymccall/neo6502-development/blob/main/assets/neo6502-header.jpg?raw=true)
+![Neo6502 Header](https://github.com/andymccall/neo6502-development/blob/main/assets/header.jpg?raw=true)
 
 W65C02S lives in The Matrix and thinks there is real RAM and other interfaces around it, but the truth is that all this is emulation of the real life. The RP2040 emulates the RAM memory, video, IO and even clock the W65C02S by PWM.
 
