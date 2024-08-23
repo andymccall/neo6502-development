@@ -1,9 +1,9 @@
 ;
-; Title:		       01-helloworld - Assembler Example
+; Title:		       02-helloworld - Assembler Example
 ;
-; Description:         A program that outputs Hello, World! on the NEO6502
-;                      intended to check your environment works with no
-;                      issues
+; Description:         A program that outputs Hello, World! to the
+;                      console on the NEO6502
+;                      
 ; Author:		       Andy McCall, mailme@andymccall.co.uk
 ;
 ; Created:		       2024-08-16 @ 14:07
@@ -12,7 +12,7 @@
 ; Modinfo:
 ;
 
-.include "../includes/neo6502.asm"
+.include "includes/neo6502.asm"
 
 .org $800
 .segment "STARTUP"
