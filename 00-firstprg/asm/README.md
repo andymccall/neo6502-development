@@ -9,26 +9,13 @@ Perform the following commands to compile the project:
 ```
 username@host:~$ cd neo6502-development/00-firstprg/asm
 username@host:~$ make
-Launching emulator...
-mkdir -p storage
-cp bin/firstprg.neo storage
-neo bin/firstprg.neo cold
-neo
-bin/firstprg.neo
-cold
-[bin/firstprg.neo]
-Trying to read header for bin/firstprg.neo
-Header check 1
-Header found.
-Execute from $800
-Control byte 0
-Load to 800 size 6
-Comment 
-Loading bytes.
-[cold]
-Cold boot $800
-rm -rf storage
-rm memory.dump
+Building project...
+mkdir -p bin
+mkdir -p lst
+mkdir -p map
+cl65 --static-locals -t none -C src/includes/neo6502.cfg -O --cpu 65c02 -l lst/firstprg.lst -m map/firstprg.map -o bin/firstprg.bin src/main.asm src/includes/neo6502.lib
+python3 ~/development/tools/neo6502/exec.zip bin/firstprg.bin@800 run@800 -o"bin/firstprg.neo"
+rm bin/firstprg.bin
 ```
 
 #### Running the program

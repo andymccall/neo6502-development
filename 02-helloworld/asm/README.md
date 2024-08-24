@@ -9,26 +9,13 @@ Perform the following commands to compile the project:
 ```
 username@host:~$ cd neo6502-development/02-helloworld/asm$
 username@host:~$ make
-Launching emulator...
-mkdir -p storage
-cp bin/helloworld.neo storage
-neo bin/helloworld.neo cold
-neo
-bin/helloworld.neo
-cold
-[bin/helloworld.neo]
-Trying to read header for bin/helloworld.neo
-Header check 1
-Header found.
-Execute from $800
-Control byte 0
-Load to 800 size 2e
-Comment 
-Loading bytes.
-[cold]
-Cold boot $800
-rm -rf storage
-rm memory.dump
+Building project...
+mkdir -p bin
+mkdir -p lst
+mkdir -p map
+cl65 --static-locals -t none -C src/includes/neo6502.cfg -O --cpu 65c02 -l lst/helloworld.lst -m map/helloworld.map -o bin/helloworld.bin src/main.asm src/includes/neo6502.lib
+python3 ~/development/tools/neo6502/exec.zip bin/helloworld.bin@800 run@800 -o"bin/helloworld.neo"
+rm bin/helloworld.bin
 ```
 
 #### Running the program
