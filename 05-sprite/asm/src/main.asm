@@ -190,3 +190,8 @@ hello_msg:      .asciiz "Sprite demo"
 
 failed_msg:     .asciiz "Failed loading graphics.gfx"
 success_msg:    .asciiz "Loading graphics.gfx"
+
+
+; TODO: Blit this somehow?!
+full_image_data:
+    .incbin "assets/full_bitriotdev.bin"
