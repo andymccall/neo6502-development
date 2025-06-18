@@ -15,6 +15,7 @@ storage
 *.dump
 *.list
 *.lst
+*.map
 lst
 bin
 obj

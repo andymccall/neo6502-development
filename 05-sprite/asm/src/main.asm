@@ -19,6 +19,15 @@
 
 start:
 
+    lda #API_FN_CLEAR_SCREEN
+    sta API_FUNCTION
+@wait_api:
+    lda API_COMMAND             ; previous API routine status
+    bne @wait_api               ; wait for previous API routine to complete 
+    lda #API_GROUP_CONSOLE
+    sta API_COMMAND
+
+
     ldx #0                 ; initialize string iteration index
     lda API_FN_WRITE_CHAR  ; console write function        (API::console->write)
     sta API_FUNCTION       ; set API 'Function'            (API::console->write)
@@ -103,7 +112,7 @@ load_success:
     bne @print_next_char    ; wait for previous API routine to complete
 
     lda success_msg , x      ; next character of 'hello_msg' (API::console->write->char)
-    beq end                ; test for string end null byte
+    beq show_sprites                ; test for string end null byte
     sta API_PARAMETERS + 0 ; set API 'Parameter0'          (API::console->write->char)
     lda #API_GROUP_CONSOLE  ; 'Console' API function group  (API::console)
     sta API_COMMAND        ; trigger 'Console' API routine (API::console)
@@ -111,6 +120,8 @@ load_success:
     inx                    ; increment iteration index
     jmp @print_next_char    ; continue 'hello_msg' print loop
 
+
+show_sprites:
     ; ---------------------------------------------------------------
     ; 2. Set up all parameters for Function 2 (Sprite Set)
     ; ---------------------------------------------------------------
@@ -119,7 +130,7 @@ load_success:
     sta API_PARAMETERS          ; Sprite Number = 1
 
     ; Parameter 1,2: X Coordinate (e.g., 150)
-    lda #150                ; Low byte of X=150
+    lda #100                ; Low byte of X=150
     sta API_PARAMETERS + 1
     lda #0                  ; High byte of X=150
     sta API_PARAMETERS + 2
@@ -149,6 +160,26 @@ load_success:
     sta API_FUNCTION
     lda #API_GROUP_SPRITES     ; Group 5: Sprite/Bitmap
     sta API_COMMAND             ; GO!
+
+show_image:
+    lda #API_FN_DRAW_IMG
+    sta API_FUNCTION
+
+    lda #120
+    sta API_PARAMETERS + 0
+    lda #0                
+    sta API_PARAMETERS + 1
+
+    lda #120
+    sta API_PARAMETERS + 2
+    lda #0 
+    sta API_PARAMETERS + 3
+
+    lda #4
+    sta API_PARAMETERS + 4
+
+    lda #API_GROUP_GRAPHICS     ; Execute
+    sta API_COMMAND   
 
 end:
     jmp end                ; infinite loop
