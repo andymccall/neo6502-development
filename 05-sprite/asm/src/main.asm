@@ -94,14 +94,16 @@ load_failed:
     bne @print_next_char    ; wait for previous API routine to complete
 
     lda failed_msg , x      ; next character of 'hello_msg' (API::console->write->char)
-    beq end                ; test for string end null byte
+    beq @end_load_failed                ; test for string end null byte
     sta API_PARAMETERS + 0 ; set API 'Parameter0'          (API::console->write->char)
     lda #API_GROUP_CONSOLE  ; 'Console' API function group  (API::console)
     sta API_COMMAND        ; trigger 'Console' API routine (API::console)
 
     inx                    ; increment iteration index
     jmp @print_next_char    ; continue 'hello_msg' print loop
-    rts
+@end_load_failed:
+    jsr end
+
 
 load_success:
     ldx #0                 ; initialize string iteration index
@@ -181,6 +183,32 @@ show_image:
     lda #API_GROUP_GRAPHICS     ; Execute
     sta API_COMMAND   
 
+blit_image:
+    lda #API_FN_BLITTER_SIMPLE_CPY ; simple blit
+    sta API_FUNCTION
+
+    lda #0      
+    sta API_PARAMETERS + 0
+    lda #<full_image_data               
+    sta API_PARAMETERS + 1
+    lda #>full_image_data               
+    sta API_PARAMETERS + 2
+
+    lda #$80    
+    sta API_PARAMETERS + 3
+    lda #0      
+    sta API_PARAMETERS + 4
+    lda #0      
+    sta API_PARAMETERS + 5
+
+    lda #<data_length
+    sta API_PARAMETERS + 6
+    lda #>data_length   
+    sta API_PARAMETERS + 7
+
+    lda #API_GROUP_BLITTER     ; 12
+    sta API_COMMAND   
+
 end:
     jmp end                ; infinite loop
 
@@ -194,4 +222,5 @@ success_msg:    .asciiz "Loading graphics.gfx"
 
 ; TODO: Blit this somehow?!
 full_image_data:
-    .incbin "assets/full_bitriotdev.bin"
+    .incbin "assets/full_bitriotdev.bmp"
+data_length = * - full_image_data

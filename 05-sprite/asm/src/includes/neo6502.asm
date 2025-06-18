@@ -436,6 +436,12 @@ API_FN_I2C_WRITE    = $05 ; API function
 API_FN_I2C_READ     = $06 ; API function
 API_FN_ANALOG_READ  = $07 ; API function
 
+; Blitter functions (Group 12)
+API_GROUP_BLITTER              = $0B ; API function group
+API_FN_BLITTER_BUSY            = $01
+API_FN_BLITTER_SIMPLE_CPY      = $02
+API_FN_BLITTER_COMPLEX_CPY     = $03
+API_FN_BLITTER_BLIT_IMG        = $04
 
 ;--------;
 ; colors ;
